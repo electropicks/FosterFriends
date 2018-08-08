@@ -1,0 +1,22 @@
+<head>
+<link rel="stylesheet" href="web.css"/>
+<title>WVHS Foster Friends</title>
+  <h1>Welcome to Westview's Foster Friends club's website!</h1>
+</head>
+<body>
+  <div id="render-target"></div>
+  <div id="p1">
+  <p> Please input your association's ID and Password.</p>
+  </div>
+  <div class="loginbox">
+  <img src="avatar.png" class="avatar">
+    <div id=hform><h1>Login Here</h1></div>
+      <form>
+          <p>Identification</p>
+          <div id="entid"><input type="text" name="" placeholder="Enter ID"></div>
+          <p>Password</p>
+          <div id="entpw"><input type="password" name="" placeholder="Enter Password"></div>
+          <input type="submit" name="" value="Login">
+      </form>
+  </div>
+</body>
