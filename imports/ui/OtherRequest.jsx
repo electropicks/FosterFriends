@@ -3,14 +3,11 @@ import ReactDOM from 'react-dom';
 import { Tasks } from '../api/tasks.js';
 
 const initialState = {
-  task: '',
-  number: '',
-  date: '',
-  other: '',
+  request: '',
 };
 
 // Home component - represents the entry point
-export default class VolunteerRequest extends Component {
+export default class OtherRequest extends Component {
 
   constructor(props) {
     super(props);
@@ -29,7 +26,7 @@ export default class VolunteerRequest extends Component {
     e.preventDefault();
 
     Tasks.insert({
-      type: 'VolunteerRequest',
+      type: 'OtherRequest',
       text: JSON.stringify(this.state),
       createdAt: new Date(), //current time
       owner: Meteor.userId(),
@@ -47,32 +44,10 @@ export default class VolunteerRequest extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit}>
-          Description of Volunteer Task
-          <input
-            type="text"
-            name='task'
-            value={this.state.task}
-            onChange={this.handleChange}
-          /><br/>
-          Number of Volunteers Needed:
-          <input
-            type="text"
-            name='number'
-            value={this.state.number}
-            onChange={this.handleChange}
-          /><br/>
-          Date(s) needed:
-          <input
-            type="text"
-            name='date'
-            value={this.state.date}
-            onChange={this.handleChange}
-          /><br/>
-          Any other information:
-          <input
-            type="text"
-            name='other'
-            value={this.state.other}
+          Other Request:<br/>
+          <textarea
+            name='request'
+            value={this.state.request}
             onChange={this.handleChange}
           /><br/>
           <input type="submit" value="Submit" />

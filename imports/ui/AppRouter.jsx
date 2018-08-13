@@ -4,6 +4,7 @@ import Home from './Home.jsx';
 import App from './App.jsx';
 import GiftRequest from './GiftRequest.jsx';
 import VolunteerRequest from './VolunteerRequest.jsx';
+import OtherRequest from './OtherRequest.jsx';
 import AboutUs from './AboutUs.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.js'
 import { withTracker } from 'meteor/react-meteor-data';
@@ -36,7 +37,7 @@ class AppRouter extends Component {
                 <Route exact path="/" component={App} />
                 <Route path="/giftRequest" component={GiftRequest} />
                 <Route path="/volunteerRequest" component={VolunteerRequest} />
-                <Route path="/otherRequest" component={VolunteerRequest} />
+                <Route path="/otherRequest" component={OtherRequest} />
                 <Route path="/aboutUs" component={AboutUs} />
               </Switch>
             </div>

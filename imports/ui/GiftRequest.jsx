@@ -12,7 +12,7 @@ const initialState = {
 };
 
 // Home component - represents the entry point
-export default class Home extends Component {
+export default class GiftRequest extends Component {
 
   constructor(props) {
     super(props);
@@ -31,6 +31,7 @@ export default class Home extends Component {
     e.preventDefault();
 
     Tasks.insert({
+      type: 'GiftRequest',
       text: JSON.stringify(this.state),
       createdAt: new Date(), //current time
       owner: Meteor.userId(),
