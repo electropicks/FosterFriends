@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Tasks } from '../api/tasks.js';
+import { Requests } from '../api/requests.js';
 
 const initialState = {
-  task: '',
+  request: '',
   number: '',
   date: '',
   other: '',
@@ -28,7 +28,7 @@ export default class VolunteerRequest extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    Tasks.insert({
+    Requests.insert({
       type: 'VolunteerRequest',
       text: JSON.stringify(this.state),
       createdAt: new Date(), //current time
@@ -47,11 +47,11 @@ export default class VolunteerRequest extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit}>
-          Description of Volunteer Task
+          Description of Volunteer Request
           <input
             type="text"
-            name='task'
-            value={this.state.task}
+            name='request'
+            value={this.state.request}
             onChange={this.handleChange}
           /><br/>
           Number of Volunteers Needed:

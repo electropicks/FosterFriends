@@ -4,9 +4,9 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { BrowserRouter } from 'react-router-dom'
 
-import { Tasks } from '../api/tasks.js';
+import { Requests } from '../api/requests.js';
 
-import Task from './Task.js';
+import Request from './Request.js';
 
 // App component - represents the whole app
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
     //Find the text field via the React ref
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-    Tasks.insert({
+    Requests.insert({
       text,
       createdAt: new Date(), //current time
       owner: Meteor.userId(),
@@ -41,13 +41,13 @@ class App extends Component {
     });
   }
 
-  renderTasks() {
-    let filteredTasks = this.props.tasks;
+  renderRequests() {
+    let filteredRequests = this.props.requests;
     if (this.state.hideCompleted) {
-      filteredTasks = filteredTasks.filter(task => !task.checked);
+      filteredRequests = filteredRequests.filter(request => !request.checked);
     }
-    return filteredTasks.map((task) => (
-      <Task key={task._id} task={task} />
+    return filteredRequests.map((request) => (
+      <Request key={request._id} request={request} />
     ));
   }
 
@@ -69,7 +69,7 @@ class App extends Component {
 
 
           { this.props.currentUser ?
-          <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
+          <form className="new-request" onSubmit={this.handleSubmit.bind(this)} >
             <input
               type="text"
               ref= "textInput"
@@ -80,7 +80,7 @@ class App extends Component {
         </header>
 
         <ul>
-          {this.renderTasks()}
+          {this.renderRequests()}
         </ul>
       </div>
     );
@@ -89,8 +89,8 @@ class App extends Component {
 
 export default withTracker(() => {
   return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1} }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true} }).count(),
+    requests: Requests.find({}, { sort: { createdAt: -1} }).fetch(),
+    incompleteCount: Requests.find({ checked: { $ne: true} }).count(),
     currentUser: Meteor.user(),
   };
 })(App);

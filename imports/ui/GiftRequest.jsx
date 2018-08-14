@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Tasks } from '../api/tasks.js';
+import { Requests } from '../api/requests.js';
 
 const initialState = {
   name: '',
@@ -30,7 +30,7 @@ export default class GiftRequest extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    Tasks.insert({
+    Requests.insert({
       type: 'GiftRequest',
       text: JSON.stringify(this.state),
       createdAt: new Date(), //current time

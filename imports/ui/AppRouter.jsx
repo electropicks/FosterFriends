@@ -9,7 +9,7 @@ import AboutUs from './AboutUs.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.js'
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Tasks } from '../api/tasks.js';
+import { Requests } from '../api/requests.js';
 
 
 // App component - represents the whole app
@@ -55,8 +55,8 @@ class AppRouter extends Component {
 
 export default withTracker(() => {
   return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1} }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true} }).count(),
+    requests: Requests.find({}, { sort: { createdAt: -1} }).fetch(),
+    incompleteCount: Requests.find({ checked: { $ne: true} }).count(),
     currentUser: Meteor.user(),
   };
 })(AppRouter);
