@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Requests } from '../api/requests.js';
 
 const initialState = {
@@ -32,7 +31,7 @@ export default class GiftRequest extends Component {
 
     Requests.insert({
       type: 'GiftRequest',
-      text: JSON.stringify(this.state),
+      payload: { ...this.state },
       createdAt: new Date(), //current time
       owner: Meteor.userId(),
       username: Meteor.user().username,

@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, NavLink, Switch, Route, Redirect } from 'react-router-dom';
+import { withTracker } from 'meteor/react-meteor-data';
+
+import AccountsUIWrapper from './AccountsUIWrapper.js'
 import Home from './Home.jsx';
-import App from './App.jsx';
 import GiftRequest from './GiftRequest.jsx';
 import VolunteerRequest from './VolunteerRequest.jsx';
 import OtherRequest from './OtherRequest.jsx';
 import AboutUs from './AboutUs.jsx';
-import AccountsUIWrapper from './AccountsUIWrapper.js'
-import { withTracker } from 'meteor/react-meteor-data';
-
-import { Requests } from '../api/requests.js';
-
 
 // App component - represents the whole app
 class AppRouter extends Component {
@@ -34,7 +31,7 @@ class AppRouter extends Component {
             </nav>
             <div>
               <Switch>
-                <Route exact path="/" component={App} />
+                <Route exact path="/" component={Home} />
                 <Route path="/giftRequest" component={GiftRequest} />
                 <Route path="/volunteerRequest" component={VolunteerRequest} />
                 <Route path="/otherRequest" component={OtherRequest} />
@@ -55,8 +52,6 @@ class AppRouter extends Component {
 
 export default withTracker(() => {
   return {
-    requests: Requests.find({}, { sort: { createdAt: -1} }).fetch(),
-    incompleteCount: Requests.find({ checked: { $ne: true} }).count(),
     currentUser: Meteor.user(),
   };
 })(AppRouter);

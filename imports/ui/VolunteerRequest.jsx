@@ -30,7 +30,7 @@ export default class VolunteerRequest extends Component {
 
     Requests.insert({
       type: 'VolunteerRequest',
-      text: JSON.stringify(this.state),
+      payload: { ...this.state },
       createdAt: new Date(), //current time
       owner: Meteor.userId(),
       username: Meteor.user().username,

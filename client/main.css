@@ -148,6 +148,11 @@ li.private {
 
 header .hide-completed {
   float: right;
+  padding: 5px;
+}
+
+.filter-box {
+  padding: 5px;
 }
 
 .toggle-private {

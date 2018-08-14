@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 // Home component - represents the entry point
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
+export default class AboutUs extends Component {
+
   render() {
     return(
       <p className='container'>

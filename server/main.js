@@ -6,7 +6,7 @@ Meteor.startup(() => {
   // Support for playing D&D: Roll 3d6 for dexterity.
   Accounts.onCreateUser((options, user) => {
     const customizedUser = Object.assign({
-      dexterity: 'test',
+      customField: 'test',
     }, user);
 
     // We still want the default hook's 'profile' behavior.

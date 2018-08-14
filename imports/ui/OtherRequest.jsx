@@ -27,13 +27,12 @@ export default class OtherRequest extends Component {
 
     Requests.insert({
       type: 'OtherRequest',
-      text: JSON.stringify(this.state),
+      payload: { ...this.state },
       createdAt: new Date(), //current time
       owner: Meteor.userId(),
       username: Meteor.user().username,
     });
 
-    console.log(this.state);
     this.setState({
       ...initialState,
     });
