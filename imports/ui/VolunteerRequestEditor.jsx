@@ -59,9 +59,13 @@ export default class VolunteerRequestEditor extends Component {
   }
 
   reset = () => {
-    this.setState({
-      ...defaultState,
-    });
+    // Only reset state if issue was created, otherwise
+    // keep it intact for future edits
+    if (!this.state._id) {
+      this.setState({
+        ...defaultState,
+      });  
+    }
   }
 
   render() {
