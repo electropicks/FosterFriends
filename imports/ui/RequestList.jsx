@@ -59,7 +59,7 @@ class RequestList extends Component {
 
   render() {
     return(
-      <div>
+      <div className='container-fluid'>
         <header>
           <h3 className='title'>Request List ({this.props.incompleteCount})</h3>
           <label className="filter-box">
@@ -68,7 +68,7 @@ class RequestList extends Component {
               name="showGiftRequests"
               checked={this.state.showGiftRequests}
               onChange={this.handleInputChange}
-            />
+            />&nbsp;
             Gift Requests
           </label>
           <label className="filter-box">
@@ -77,7 +77,7 @@ class RequestList extends Component {
               name="showVolunteerRequests"
               checked={this.state.showVolunteerRequests}
               onChange={this.handleInputChange}
-            />
+            />&nbsp;
             Volunteer Requests
           </label>
           <label className="filter-box">
@@ -86,7 +86,7 @@ class RequestList extends Component {
               name="showOtherRequests"
               checked={this.state.showOtherRequests}
               onChange={this.handleInputChange}
-            />
+            />&nbsp;
             Other Requests
           </label>
           <label className="hide-completed">
@@ -95,7 +95,7 @@ class RequestList extends Component {
               name="confirmDelete"
               checked={this.state.confirmDelete}
               onChange={this.handleInputChange}
-            />
+            />&nbsp;
             Confirm Delete
           </label>
           <label className="hide-completed">
@@ -104,7 +104,7 @@ class RequestList extends Component {
               name="hideCompleted"
               checked={this.state.hideCompleted}
               onChange={this.handleInputChange}
-            />
+            />&nbsp;
             Hide Completed Requests
           </label>
           <br/>

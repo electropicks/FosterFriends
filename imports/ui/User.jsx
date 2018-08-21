@@ -4,6 +4,8 @@ import moment from 'moment/moment.js';
 // User component - represents a single user
 export default class User extends Component {
 
+  // Disabled at this time, only way to delete
+  // users is via mongo cmd line for now
   delete = () => {
     const confirmed = this.props.confirmDelete ?
       confirm("Delete the selected user?") : true;
@@ -20,10 +22,6 @@ export default class User extends Component {
 
     return (
       <li>
-        <button className="delete" onClick={this.delete}>
-          &times;
-        </button>
-
         <span>User Name: {user.username}, Agency Name: {agency}, Agency Contact: {contact}</span>
       </li>
     );

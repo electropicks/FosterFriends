@@ -39,18 +39,18 @@ class UserList extends Component {
     return(
       <div>
         <header>
-          <h1>User List ({this.props.count})</h1>
-          <br/>
-          <label className="hide-completed">
-            <input
-              type="checkbox"
-              name="confirmDelete"
-              checked={this.state.confirmDelete}
-              onChange={this.handleInputChange}
-            />
-            Confirm Delete
-          </label>
-          <br/>
+          <h3 className='title'>User List ({this.props.count})</h3>
+          { this.notSupported &&
+            <label className="hide-completed">
+              <input
+                type="checkbox"
+                name="confirmDelete"
+                checked={this.state.confirmDelete}
+                onChange={this.handleInputChange}
+              />
+              Confirm Delete
+            </label>
+          }
         </header>
         <ul>
           {this.renderUsers()}

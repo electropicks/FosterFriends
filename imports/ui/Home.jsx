@@ -11,7 +11,7 @@ export default class Home extends Component {
 
   render() {
     return(
-      <div className='center-40pct'>
+      <div className='btn-panel center-40pct'>
         <div className='home-button'>
           <GiftRequestEditor btnClass='btn btn-primary btn-block'/>
         </div>

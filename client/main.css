@@ -14,6 +14,10 @@
   width: 40%;
 }
 
+.btn-panel {
+  margin-top: 50px;
+}
+
 .title {
   text-align: center;
   width: 100%;
@@ -21,64 +25,16 @@
 
 .home-button {
   width: 100%;
+  margin: 30px;
 }
-
 
 h1, h2, p, ul, li {
   font-family: sans-serif;
 }
-ul.header li {
-  display: inline;
-  list-style-type: none;
-  margin: 0;
-}
-ul.header {
-  background-color:#2B2F3F;
-  padding: 0;
-  -webkit-box-shadow: 3px 7px 10px 0px rgba(45, 46, 67, 0.85);
-  -moz-box-shadow:    3px 7px 10px 0px rgba(45, 46, 67, 0.85);
-  box-shadow:         3px 7px 10px 0px rgba(45, 46, 67, 0.85);
-}
-ul.header li a {
-  color: #FFF;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 20px;
-  display: inline-block;
-}
-.content {
-  background-color: #FFF;
-  padding: 20px;
-  -webkit-box-shadow: 2px 4px 8px 0px rgba(45, 46, 67, 0.85);
-  -moz-box-shadow:    2px 4px 8px 0px rgba(45, 46, 67, 0.85);
-  box-shadow:         2px 4px 8px 0px rgba(45, 46, 67, 0.85);
-}
-h1 {
-  color: #29303D;
-}
-.content h2 {
-  padding: 0;
-  margin: 0;
-}
-.content li {
-  margin-bottom: 10px;
-}
+
 
 .active {
   font-size: 1.1em;
-}
-
-
-#login-buttons {
-  display: block;
-}
-
-h1 {
-  font-size: 1.5em;
-  margin: 0;
-  margin-bottom: 10px;
-  display: inline-block;
-  margin-right: 1em;
 }
 
 form {
@@ -87,30 +43,11 @@ form {
   position: relative;
 }
 
-.new-request input {
-  box-sizing: border-box;
-  padding: 10px 0;
-  background: transparent;
-  border: none;
-  width: 100%;
-  padding-right: 80px;
-  font-size: 1em;
-}
-
-.new-request input:focus{
-  outline: 0;
-}
-
 .request {
   margin-left: 10px;
   font-style: italic;
 }
 
-ul{
-  margin: 0;
-  padding: 0;
-  background: white;
-}
 
 .delete {
   float: right;
@@ -118,18 +55,17 @@ ul{
   background: none;
   font-size: 1em;
   border: none;
-  position: relative;
 }
 
-li{
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
   position: relative;
   list-style: none;
   padding: 15px;
-  border-bottom: #eee solid 1px;
-}
-
-li .text {
-  margin-left: 10px;
 }
 
 li.checked {
@@ -171,19 +107,4 @@ header .hide-completed {
   margin: 5px;
 }
 
-
-@media (max-width: 600px) {
-  li{
-    padding: 12px 15px;
-  }
-
-  .search {
-    width: 150px;
-    clear: both;
-  }
-
-  .new-request input {
-    padding-bottom: 5px;
-  }
-}
 
