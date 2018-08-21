@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  width: 100%;
   margin: 0px;
   min-height: 100%;
   background: white;
@@ -107,6 +107,11 @@ form {
   outline: 0;
 }
 
+.request {
+  margin-left: 10px;
+  font-style: italic;
+}
+
 ul{
   margin: 0;
   padding: 0;
@@ -159,6 +164,15 @@ header .hide-completed {
   margin-left: 5px;
 }
 
+.create-another {
+  margin: 5px;
+}
+
+.modal-style {
+  display: inline-block;
+  margin-left: 5px;
+}
+
 @media (max-width: 600px) {
   li{
     padding: 12px 15px;
@@ -173,3 +187,4 @@ header .hide-completed {
     padding-bottom: 5px;
   }
 }
+

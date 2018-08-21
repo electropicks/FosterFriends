@@ -30,7 +30,7 @@ export default class GiftRequest extends Component {
     e.preventDefault();
 
     Requests.insert({
-      type: 'GiftRequest',
+      type: 'Gift Request',
       payload: { ...this.state },
       createdAt: new Date(), //current time
       owner: Meteor.userId(),

@@ -7,6 +7,7 @@ import Home from './Home.jsx';
 import GiftRequest from './GiftRequest.jsx';
 import VolunteerRequest from './VolunteerRequest.jsx';
 import OtherRequest from './OtherRequest.jsx';
+import RequestList from './RequestList.jsx';
 import AboutUs from './AboutUs.jsx';
 
 // App component - represents the whole app
@@ -26,6 +27,7 @@ class AppRouter extends Component {
                 <li><NavLink to="/giftRequest">Gift Request</NavLink></li>
                 <li><NavLink to="/volunteerRequest">Volunter Request</NavLink></li>
                 <li><NavLink to="/otherRequest">Other Request</NavLink></li>
+                <li><NavLink to="/requestList">Request List</NavLink></li>
                 <li><NavLink to="/aboutUs">About Us</NavLink></li>
               </ul>
             </nav>
@@ -35,6 +37,7 @@ class AppRouter extends Component {
                 <Route path="/giftRequest" component={GiftRequest} />
                 <Route path="/volunteerRequest" component={VolunteerRequest} />
                 <Route path="/otherRequest" component={OtherRequest} />
+                <Route path="/requestList" component={RequestList} />
                 <Route path="/aboutUs" component={AboutUs} />
               </Switch>
             </div>

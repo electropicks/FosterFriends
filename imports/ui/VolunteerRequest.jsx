@@ -29,7 +29,7 @@ export default class VolunteerRequest extends Component {
     e.preventDefault();
 
     Requests.insert({
-      type: 'VolunteerRequest',
+      type: 'Volunteer Request',
       payload: { ...this.state },
       createdAt: new Date(), //current time
       owner: Meteor.userId(),

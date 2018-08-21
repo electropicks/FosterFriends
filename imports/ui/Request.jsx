@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import moment from 'moment/moment.js';
+
+import GiftRequestEditor from './GiftRequestEditor.jsx';
 
 import { Requests } from '../api/requests.js';
 
@@ -13,16 +16,33 @@ export default class Request extends Component {
   }
 
   delete = () => {
-    Requests.remove(this.props.request._id);
+    const confirmed = this.props.confirmDelete ?
+      confirm("Delete the selected " + this.props.request.type + "?") : true;
+    if (confirmed) {
+      Requests.remove(this.props.request._id);
+    }
   }
 
   render() {
+    const { request } = this.props;
+
     // Give requests a different className when they are checked off,
     //so that we can style them nicely in CSS
-    const requestClassname = this.props.request.checked ? 'checked' : '';
+    const requestClassname = request.checked ? 'checked' : '';
     
-    const text = JSON.stringify(this.props.request.payload);
-    const requestDate = this.props.request.createdAt.toString("YYYY/MM/DD");
+    let text = "";
+    const keys = Object.keys(request.payload);
+    for (let i = 0; i < keys.length; i++) {
+      if (request.payload[keys[i]]) {
+        // Only add leading separator if this is not the first key
+        if (i > 0) {
+          text += ", ";
+        }
+        const keyString = keys[i].charAt(0).toUpperCase() + keys[i].slice(1);
+        text += keyString + ": " + request.payload[keys[i]];
+      }
+    }
+    const requestDate = moment(request.createdAt).format("YYYY/MM/DD");
 
     return (
       <li className={requestClassname}>
@@ -33,12 +53,13 @@ export default class Request extends Component {
         <input
           type="checkbox"
           readOnly
-          checked={!!this.props.request.checked}
+          checked={!!request.checked}
           onChange={this.handleInputChange}
         />
-
+        <GiftRequestEditor initialState={request}/>
         <span className="text">
-          {requestDate} <strong>{this.props.request.username}</strong>: {text}
+          On {requestDate}, <strong>{request.username}</strong> submitted a {request.type}:
+          <span className="request">{text}</span>
         </span>
       </li>
     );
