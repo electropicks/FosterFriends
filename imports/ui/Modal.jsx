@@ -41,9 +41,9 @@ export default class Modal extends Component {
 
   render() {
     return (
-      <div className='modal-style'>
+      <div className={this.props.createMode ? 'modal-style' : 'modal-style-inline'}>
         <button
-          className={this.props.btnClass ? this.props.btnClass : 'btn btn-primary'}
+          className={this.props.btnClass || 'btn btn-primary'}
           onClick={this.toggleModal}>
           {this.props.btnLabel ? this.props.btnLabel : 'Launch Modal' }
         </button>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import moment from 'moment/moment.js';
 
 import GiftRequestEditor from './GiftRequestEditor.jsx';
+import VolunteerRequestEditor from './VolunteerRequestEditor.jsx';
+import OtherRequestEditor from './OtherRequestEditor.jsx';
 
 import { Requests } from '../api/requests.js';
 
@@ -56,7 +58,15 @@ export default class Request extends Component {
           checked={!!request.checked}
           onChange={this.handleInputChange}
         />
-        <GiftRequestEditor initialState={request}/>
+        {request.type === 'Gift Request' &&
+          <GiftRequestEditor btnClass='btn btn-outline-primary btn-sm' initialState={request}/>
+        }
+        {request.type === 'Volunteer Request' &&
+          <VolunteerRequestEditor btnClass='btn btn-outline-primary btn-sm' initialState={request}/>
+        }
+        {request.type === 'Other Request' &&
+          <OtherRequestEditor btnClass='btn btn-outline-primary btn-sm' initialState={request}/>
+        }
         <span className="text">
           On {requestDate}, <strong>{request.username}</strong> submitted a {request.type}:
           <span className="request">{text}</span>

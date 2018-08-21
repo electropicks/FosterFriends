@@ -3,18 +3,16 @@ import { Requests } from '../api/requests.js';
 import Modal from './Modal.jsx';
 
 const defaultState = {
-  type: 'Gift Request',
+  type: 'Volunteer Request',
   payload: {
-    name: '',
-    age: '',
-    interests: '',
-    wishlist: '',
-    occasion: '',
-    specific: '',  
-  },
+    request: '',
+    number: '',
+    date: '',
+    other: '',
+    },
 };
 
-export default class GiftRequestEditor extends Component {
+export default class VolunteerRequestEditor extends Component {
 
   constructor(props) {
     super(props);
@@ -55,7 +53,7 @@ export default class GiftRequestEditor extends Component {
     });
 
     const action = request._id ? 'updated' : 'created';
-    Bert.alert('Gift Request ' + action + ' successfully', 'info', 'growl-top-right' );
+    Bert.alert('Volunteer Request ' + action + ' successfully', 'info', 'growl-top-right' );
 
     this.reset();
   }
@@ -70,77 +68,54 @@ export default class GiftRequestEditor extends Component {
     return (
       <Modal
         btnClass={this.props.btnClass}
-        btnLabel={this.state._id ? 'Edit' : 'Enter New Gift Request'}
-        title='Gift Request'
+        btnLabel={this.state._id ? 'Edit' : 'Enter New Volunteer Request'}
+        title='Volunteer Request'
         onCancel={this.reset}
         onSubmit={this.handleSubmit}
         createMode={this.state._id ? false : true}>
         <div className="container">
           <form>
             <div className="form-group">
-              <label>Recipient's Name</label>
+              <label>Description of Volunteer Request</label>
               <input
-                name='name'
+                name='request'
                 type="text"
                 className="form-control"
-                placeholder="Enter first and last name"
-                value={this.state.payload.name}
-                onChange={this.handleChange}
-              />
-              <small className="form-text text-muted">The recipient name is optional</small>
-            </div>
-            <div className="form-group">
-              <label>Recipient's Age</label>
-              <input
-                name='age'
-                type="text"
-                className="form-control"
-                placeholder="Enter age"
-                value={this.state.payload.age}
+                placeholder="Enter request..."
+                value={this.state.payload.request}
                 onChange={this.handleChange}
               />
             </div>
             <div className="form-group">
-              <label>Interests</label>
+              <label>Number of volunteers needed</label>
               <input
-                name='interests'
+                name='number'
                 type="text"
                 className="form-control"
-                placeholder="Enter interests..."
-                value={this.state.payload.interests}
+                placeholder="Enter number of volunteers..."
+                value={this.state.payload.number}
                 onChange={this.handleChange}
               />
             </div>
             <div className="form-group">
-              <label>Gift Wishlist</label>
+              <label>Date(s) needed</label>
               <input
-                name='wishlist'
+                name='date'
                 type="text"
                 className="form-control"
-                placeholder="Enter wishlist..."
-                value={this.state.payload.wishlist}
+                placeholder="Enter date(s)..."
+                value={this.state.payload.date}
                 onChange={this.handleChange}
               />
             </div>
             <div className="form-group">
-              <label>Occasion/Circumstance for Gift</label>
+              <label>Any other information</label>
               <input
-                name='occasion'
+                name='other'
                 type="text"
                 className="form-control"
-                placeholder="Enter occasion or circumstance..."
-                value={this.state.payload.occasion}
-                onChange={this.handleChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Any specific request for gift</label>
-              <input
-                name='specific'
-                type="text"
-                className="form-control"
-                placeholder="Enter specific request if any..."
-                value={this.state.payload.specific}
+                placeholder="Enter other information..."
+                value={this.state.payload.other}
                 onChange={this.handleChange}
               />
             </div>

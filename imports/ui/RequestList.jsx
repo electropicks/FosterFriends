@@ -61,8 +61,7 @@ class RequestList extends Component {
     return(
       <div>
         <header>
-          <h1>Request List ({this.props.incompleteCount})</h1>
-          <br/>
+          <h3 className='title'>Request List ({this.props.incompleteCount})</h3>
           <label className="filter-box">
             <input
               type="checkbox"
