@@ -36,6 +36,9 @@ class UserList extends Component {
   }
 
   render() {
+    if (this.props.currentUser && this.props.currentUser.username !== 'admin') {
+      return <div></div>;
+    }
     return(
       <div>
         <header>

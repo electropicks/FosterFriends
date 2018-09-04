@@ -25,16 +25,15 @@
 
 .home-button {
   width: 100%;
-  margin: 30px;
+  padding: 20px;
 }
 
 h1, h2, p, ul, li {
   font-family: sans-serif;
 }
 
-
 .active {
-  font-size: 1.1em;
+  color: navy;
 }
 
 form {
@@ -47,7 +46,6 @@ form {
   margin-left: 10px;
   font-style: italic;
 }
-
 
 .delete {
   float: right;
@@ -99,7 +97,7 @@ header .hide-completed {
 }
 
 .modal-style {
-  margin: 15px;
+
 }
 
 .modal-style-inline {

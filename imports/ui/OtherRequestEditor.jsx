@@ -69,7 +69,7 @@ export default class OtherRequestEditor extends Component {
     return (
       <Modal
         btnClass={this.props.btnClass}
-        btnLabel={this.state._id ? 'Edit' : 'Enter New Other Request'}
+        btnLabel={this.state._id ? 'Edit' : 'Other Request'}
         title='Other Request'
         onCancel={this.reset}
         onSubmit={this.handleSubmit}
@@ -77,7 +77,6 @@ export default class OtherRequestEditor extends Component {
         <div className="container">
           <form>
             <div className="form-group">
-              <label>Other Request</label>
               <textarea
                 name='request'
                 className="form-control"

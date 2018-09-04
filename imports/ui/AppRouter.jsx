@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, NavLink, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Link, NavLink, Switch, Route } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 
@@ -43,16 +43,25 @@ class AppRouter extends Component {
                   <li className="nav-item">
                     <NavLink to="/requestList">Request List</NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink to="/userList">User List</NavLink>
+                  {this.props.currentUser.username === 'admin' &&
+                    <li className="nav-item">
+                      <NavLink to="/userList">User List</NavLink>
+                    </li>
+                  }
+                </ul>
+                <ul className='navbar-nav'>
+                  <li className="nav-item dropdown">
+                    <a className="nav-item dropdown-toggle" href="#" data-toggle="dropdown">
+                      {this.props.currentUser.username}
+                    </a>
+                    <div className="dropdown-menu">
+                      <Link className="dropdown-item" to='/aboutUs'>Profile</Link>
+                      <div className="dropdown-divider"></div>
+                      <a className="dropdown-item" onClick={this.logout}>Logout</a>
+                    </div>
                   </li>
                   <li className="nav-item">
                     <NavLink to="/aboutUs">About Us</NavLink>
-                  </li>
-                </ul>
-                <ul className='navbar-nav'>
-                  <li className='nav-item justify-content-end' onClick={this.logout}>
-                    <NavLink to="/">Logout</NavLink>
                   </li>
                 </ul>
               </div>

@@ -38,12 +38,13 @@ export default class GiftRequestEditor extends Component {
     const now = new Date();
     const request = {
       ...this.state,
-      modifiedAt: now,
       owner: Meteor.userId(),
       username: Meteor.user().username,
     };
     if (!request._id) {
       request.createdAt = now;
+    } else {
+      request.modifiedAt = now;
     }
 
     Requests.upsert({
@@ -74,7 +75,7 @@ export default class GiftRequestEditor extends Component {
     return (
       <Modal
         btnClass={this.props.btnClass}
-        btnLabel={this.state._id ? 'Edit' : 'Enter New Gift Request'}
+        btnLabel={this.state._id ? 'Edit' : 'Request Gift for a Child'}
         title='Gift Request'
         onCancel={this.reset}
         onSubmit={this.handleSubmit}

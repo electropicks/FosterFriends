@@ -13,7 +13,10 @@ export default class Request extends Component {
   handleInputChange = () => {
     // Set the checked property to the opposite of its current value
     Requests.update(this.props.request._id, {
-      $set: { checked: !this.props.request.checked },
+      $set: {
+        checked: !this.props.request.checked,
+        modifiedAt: new Date(),
+      },
     });
   }
 
@@ -44,7 +47,11 @@ export default class Request extends Component {
         text += keyString + ": " + request.payload[keys[i]];
       }
     }
-    const requestDate = moment(request.createdAt).format("YYYY/MM/DD");
+
+    const action = request.modifiedAt ? 'updated' : 'submitted';
+    const actionTime = request.modifiedAt || request.createdAt;
+    const requestDate = moment(actionTime).format("YYYY/MM/DD");
+    const requestTime = moment(actionTime).format("HH:mm:ss");
 
     return (
       <li className={requestClassname}>
@@ -68,7 +75,7 @@ export default class Request extends Component {
           <OtherRequestEditor btnClass='btn btn-outline-primary btn-sm' initialState={request}/>
         }
         <span className="text">
-          On {requestDate}, <strong>{request.username}</strong> submitted a {request.type}:
+          <strong>{request.username}</strong> {action} the following {request.type} on {requestDate} at {requestTime}:<br/>
           <span className="request">{text}</span>
         </span>
       </li>

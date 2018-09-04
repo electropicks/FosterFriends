@@ -72,7 +72,7 @@ export default class VolunteerRequestEditor extends Component {
     return (
       <Modal
         btnClass={this.props.btnClass}
-        btnLabel={this.state._id ? 'Edit' : 'Enter New Volunteer Request'}
+        btnLabel={this.state._id ? 'Edit' : 'Request Volunteer(s)'}
         title='Volunteer Request'
         onCancel={this.reset}
         onSubmit={this.handleSubmit}

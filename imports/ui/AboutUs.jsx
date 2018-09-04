@@ -8,6 +8,7 @@ export default class AboutUs extends Component {
   render() {
     return(
       <p className='container-fluid'>
+        <br/>
         Foster Friends is a non profit organization based in San Diego that works with agencies
         to better the lives of foster kids in the area. This application serves as a way for agencies
         to better request help from our group or to help personalize gifts for the children that range
